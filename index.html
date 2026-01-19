@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Design Tools, Simplified.</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 </head>
 
 <body>
@@ -13,12 +13,42 @@
     <header class="navbar">
         <div class="container">
             <nav class="nav-links">
-                <a href="#" class="nav-item active" data-tool="home">Home</a>
-                <a href="#" class="nav-item" data-tool="ratio-calculator">Ratio Calculator</a>
-                <a href="#" class="nav-item" data-tool="contrast-finder">Contrast Finder</a>
-                <a href="#" class="nav-item" data-tool="typography-tool">Typography Tool</a>
-                <a href="#" class="nav-item" data-tool="image-info">Image Info</a>
-                <a href="#" class="nav-item" data-tool="brand-toolkits">Brand Toolkits</a>
+                <a href="#" class="nav-item active" data-tool="home">
+                    <span class="nav-icon"><svg>
+                            <use href="#icon-home"></use>
+                        </svg></span>
+                    <span class="nav-label">Home</span>
+                </a>
+                <a href="#" class="nav-item" data-tool="ratio-calculator">
+                    <span class="nav-icon"><svg>
+                            <use href="#icon-aspect-ratio"></use>
+                        </svg></span>
+                    <span class="nav-label">Ratio Calculator</span>
+                </a>
+                <a href="#" class="nav-item" data-tool="contrast-finder">
+                    <span class="nav-icon"><svg>
+                            <use href="#icon-contrast"></use>
+                        </svg></span>
+                    <span class="nav-label">Contrast Finder</span>
+                </a>
+                <a href="#" class="nav-item" data-tool="typography-tool">
+                    <span class="nav-icon"><svg>
+                            <use href="#icon-typography"></use>
+                        </svg></span>
+                    <span class="nav-label">Typography Tool</span>
+                </a>
+                <a href="#" class="nav-item" data-tool="image-info">
+                    <span class="nav-icon"><svg>
+                            <use href="#icon-image-info"></use>
+                        </svg></span>
+                    <span class="nav-label">Image Info</span>
+                </a>
+                <a href="#" class="nav-item" data-tool="brand-toolkits">
+                    <span class="nav-icon"><svg>
+                            <use href="#icon-brand-kit"></use>
+                        </svg></span>
+                    <span class="nav-label">Brand Toolkits</span>
+                </a>
             </nav>
         </div>
     </header>
@@ -66,12 +96,20 @@
                     <div class="input-group">
                         <div class="input-with-copy">
                             <input type="number" id="width" placeholder="Width" min="0" step="1">
-                            <button class="copy-btn" data-target="width">📋</button>
+                            <button class="copy-btn" data-target="width">
+                                <svg>
+                                    <use href="#icon-copy"></use>
+                                </svg>
+                            </button>
                         </div>
                         <span class="colon">:</span>
                         <div class="input-with-copy">
                             <input type="number" id="height" placeholder="Height" min="0" step="1">
-                            <button class="copy-btn" data-target="height">📋</button>
+                            <button class="copy-btn" data-target="width">
+                                <svg>
+                                    <use href="#icon-copy"></use>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                     <p class="helper-text">Type a width to calculate the height, or enter a height to calculate the
@@ -83,16 +121,66 @@
         <!-- Contrast Finder -->
         <section id="contrast-finder" class="tool-section">
             <div class="container">
-                <h2>Color Contrast Finder</h2>
-                <p>Upload or input foreground colors to find accessible background matches.</p>
+                <h1>Color Contrast Finder</h1>
+                <p class="subtitle">Find accessible background colors for your foreground text.</p>
+
+                <div class="color-inputs">
+                    <label>Foreground Colors (Text)</label>
+                    <div class="fg-color-list" id="fgColorList">
+                        <!-- Initial input -->
+                        <div class="fg-color-item">
+                            <input type="text" class="fg-color-input" placeholder="#FFFFFF" value="#FFFFFF">
+                            <input type="color" class="fg-color-picker" value="#ffffff">
+                            <button class="remove-color-btn" type="button">×</button>
+                        </div>
+                    </div>
+                    <button id="addColorBtn" class="add-color-btn">+ Add Color</button>
+                </div>
+
+                <div class="results" id="resultsContainer" style="display: none;">
+                    <h2>Recommended Backgrounds</h2>
+                    <div class="results-grid" id="resultsGrid"></div>
+                </div>
+
+
             </div>
         </section>
 
         <!-- Typography Tool -->
         <section id="typography-tool" class="tool-section">
             <div class="container">
-                <h2>Typography Tool</h2>
-                <p>Generate harmonious font sizes using the golden ratio.</p>
+                <h1>Typography Scale Generator</h1>
+                <p class="subtitle">Generate harmonious font sizes using the golden ratio (φ ≈ 1.618)</p>
+
+                <div class="typography-controls">
+                    <label>Select Base Type:</label>
+                    <div class="radio-group">
+                        <label class="radio-item">
+                            <input type="radio" name="scaleType" value="smallest" checked>
+                            <span>Smallest</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="scaleType" value="medium">
+                            <span>Medium</span>
+                        </label>
+                        <label class="radio-item">
+                            <input type="radio" name="scaleType" value="largest">
+                            <span>Largest</span>
+                        </label>
+                    </div>
+
+                    <div class="base-size-input">
+                        <label for="baseFontSize">Base Font Size (px)</label>
+                        <input type="number" id="baseFontSize" min="1" step="1" value="16">
+                    </div>
+                </div>
+
+                <div class="results" id="typographyResults" style="display: none;">
+                    <h2>Suggested Font Sizes</h2>
+                    <div class="font-sizes-grid" id="fontSizesGrid"></div>
+                </div>
+
+
             </div>
         </section>
 
@@ -116,11 +204,50 @@
     <!-- Fixed Footer -->
     <footer class="footer">
         <div class="container">
-            <p>Created By <a href="#" target="_blank" class="creator-link">Lord Vyke</a></p>
+            <p>Created By <a href="https://twitter.com/lordvyke" target="_blank" class="creator-link">Lord Vyke</a></p>
         </div>
     </footer>
 
-    <script src="main.js"></script>
+    <!-- Hidden SVG Sprite (to be filled with your icons) -->
+    <svg style="display: none;" aria-hidden="true">
+        <symbol id="icon-home" viewBox="0 0 24 24">
+            <!-- Replace with your home icon path -->
+            <path fill="currentColor" d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+        </symbol>
+        <symbol id="icon-aspect-ratio" viewBox="0 0 24 24">
+            <!-- Replace with your aspect ratio icon -->
+            <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+            <line x1="3" y1="9" x2="21" y2="9" stroke="currentColor" stroke-width="2" />
+            <line x1="9" y1="3" x2="9" y2="21" stroke="currentColor" stroke-width="2" />
+        </symbol>
+        <symbol id="icon-contrast" viewBox="0 0 24 24">
+            <!-- Replace with your contrast icon -->
+            <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2" />
+            <circle cx="12" cy="12" r="4" fill="currentColor" />
+        </symbol>
+        <symbol id="icon-typography" viewBox="0 0 24 24">
+            <!-- Replace with your typography icon -->
+            <path fill="currentColor" d="M9 7h2v8H9zm4 0h2v8h-2zM7 4v16h10V4H7zm2 2h6v2H9V6z" />
+        </symbol>
+        <symbol id="icon-image-info" viewBox="0 0 24 24">
+            <!-- Replace with your image info icon -->
+            <rect x="3" y="3" width="18" height="18" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+            <circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" />
+            <path d="M12 17v-4h1v4h3v-2h1v2h1v1h-6v-1z" fill="currentColor" />
+        </symbol>
+        <symbol id="icon-brand-kit" viewBox="0 0 24 24">
+            <!-- Replace with your brand kit icon -->
+            <path fill="currentColor" d="M12 3l-9 5v6c0 5.55 3.84 9.74 9 11 5.16-1.26 9-5.45 9-11V8l-9-5z" />
+            <circle cx="12" cy="10" r="2" fill="none" stroke="currentColor" stroke-width="2" />
+        </symbol>
+        <symbol id="icon-copy" viewBox="0 0 24 24">
+            <path
+                d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+                fill="currentColor" />
+        </symbol>
+    </svg>
+
+    <script src="js/main.js"></script>
 </body>
 
 </html>
