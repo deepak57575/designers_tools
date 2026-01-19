@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Design Tools, Simplified.</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+    <!-- Top Navigation -->
+    <header class="navbar">
+        <div class="container">
+            <nav class="nav-links">
+                <a href="#" class="nav-item active" data-tool="home">Home</a>
+                <a href="#" class="nav-item" data-tool="ratio-calculator">Ratio Calculator</a>
+                <a href="#" class="nav-item" data-tool="contrast-finder">Contrast Finder</a>
+                <a href="#" class="nav-item" data-tool="typography-tool">Typography Tool</a>
+                <a href="#" class="nav-item" data-tool="image-info">Image Info</a>
+                <a href="#" class="nav-item" data-tool="brand-toolkits">Brand Toolkits</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area: Only one section visible at a time -->
+    <main class="main-content">
+        <!-- Home -->
+        <section id="home" class="tool-section active">
+            <div class="container">
+                <h1>Design Tools, Simplified.</h1>
+                <p>All the essentials you need for sizing, colors, images, and branding — in one fast, distraction-free
+                    web app.</p>
+            </div>
+        </section>
+
+        <!-- Ratio Calculator -->
+        <section id="ratio-calculator" class="tool-section">
+            <div class="container">
+                <h1>Aspect Ratio Calculator</h1>
+                <p class="subtitle">Calculate missing dimensions based on aspect ratio</p>
+
+                <div class="aspect-ratio-selector">
+                    <label>Select Aspect Ratio</label>
+                    <div class="ratio-buttons">
+                        <button class="ratio-btn active" data-ratio="16:9"
+                            data-label="Widescreen">16:9<br><small>Widescreen</small></button>
+                        <button class="ratio-btn" data-ratio="4:3"
+                            data-label="Standard">4:3<br><small>Standard</small></button>
+                        <button class="ratio-btn" data-ratio="21:9"
+                            data-label="Ultrawide">21:9<br><small>Ultrawide</small></button>
+                        <button class="ratio-btn" data-ratio="3:2"
+                            data-label="Classic Photography">3:2<br><small>Classic Photography</small></button>
+                        <button class="ratio-btn" data-ratio="9:16"
+                            data-label="Portrait / Vertical">9:16<br><small>Portrait / Vertical</small></button>
+                        <button class="ratio-btn" data-ratio="16:10"
+                            data-label="Widescreen (Productivity)">16:10<br><small>Widescreen
+                                (Productivity)</small></button>
+                        <button class="ratio-btn" data-ratio="custom"
+                            data-label="Custom">X:Y<br><small>Custom</small></button>
+                    </div>
+                </div>
+
+                <div class="dimensions-inputs">
+                    <label>Dimensions</label>
+                    <div class="input-group">
+                        <div class="input-with-copy">
+                            <input type="number" id="width" placeholder="Width" min="0" step="1">
+                            <button class="copy-btn" data-target="width">📋</button>
+                        </div>
+                        <span class="colon">:</span>
+                        <div class="input-with-copy">
+                            <input type="number" id="height" placeholder="Height" min="0" step="1">
+                            <button class="copy-btn" data-target="height">📋</button>
+                        </div>
+                    </div>
+                    <p class="helper-text">Type a width to calculate the height, or enter a height to calculate the
+                        width using the selected aspect ratio.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contrast Finder -->
+        <section id="contrast-finder" class="tool-section">
+            <div class="container">
+                <h2>Color Contrast Finder</h2>
+                <p>Upload or input foreground colors to find accessible background matches.</p>
+            </div>
+        </section>
+
+        <!-- Typography Tool -->
+        <section id="typography-tool" class="tool-section">
+            <div class="container">
+                <h2>Typography Tool</h2>
+                <p>Generate harmonious font sizes using the golden ratio.</p>
+            </div>
+        </section>
+
+        <!-- Image Info -->
+        <section id="image-info" class="tool-section">
+            <div class="container">
+                <h2>Image Information Viewer</h2>
+                <p>Upload an image to view its dimensions, file size, format, and metadata.</p>
+            </div>
+        </section>
+
+        <!-- Brand Toolkits -->
+        <section id="brand-toolkits" class="tool-section">
+            <div class="container">
+                <h2>Brand Toolkits</h2>
+                <p>Save and manage your brand colors, fonts, sizes, and icon styles.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Fixed Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Created By <a href="https://twitter.com/lordvyke" target="_blank" class="creator-link">Lord Vyke</a></p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
